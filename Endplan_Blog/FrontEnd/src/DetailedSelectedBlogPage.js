@@ -2,56 +2,33 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import Navbar from './Navbar';
-import {Link} from "react-router-dom";
-import swal from 'sweetalert';
 import FrontEndController from './FrontEndController';
+//import './DetailedSelectedBlogPage.css';
+import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom';
 
-
+import StylingDetailedSelectedBlogPage from './StylingDetailedSelectedBlogPage';
 
 class DetailedSelectedBlogPage extends React.Component {
   
     state = {
         
-        SelectedBlog:this.props.location.SelectedBlog,
+        BlogObject:this.props.location.BlogObject,
         
       }
   
-    //   addToCart=()=>{
-
-    //   FrontEndController.addCartDetails(this.state.productObj,this.state.userObj.email)
-    //       .then(response=>{
-    //         let newProductCount=response.data.cartCount;
-    //         this.setState({
-    //         productCount: newProductCount
-    //       });
-    //         swal("Product added to cart");
-    //       })
-    //       .catch(error=>{
-    //         swal("Product Failed to add in cart")
-    //       })
-    //   }
-
-      callbackFunction = (childData) => {
-        this.setState({productsArray: childData})
-        }
+    
+      
 
     
     render() {
         return (             
-                <div>
-                <Navbar    />
+        <div>
+        <Navbar    />
 
-<div>
-<h2>{this.state.SelectedBlog.BlogTitle}</h2> 
-   <h2>{this.state.SelectedBlog.BlogDescription}</h2> 
-</div>
-
-  
+       <StylingDetailedSelectedBlogPage BlogObject={this.state.BlogObject }  />
  
  </div>
-
-      
-   
  );
 }
 }

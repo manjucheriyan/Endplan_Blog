@@ -2,14 +2,14 @@
 import React from 'react';
 import Home from './Home';
 // import UserHome from './UserHome';
-// import Login from './Login';
+import Login from './Login';
 //import Payment from './Payment';
 import './App.css';
 import './Home.css';
-// import Register from './Register';
+ import Register from './Register';
 // import Product from './Product';
  import DetailedSelectedBlogPage from './DetailedSelectedBlogPage';
-
+ import CreateABlog from './createABlog';
 
 import{
   BrowserRouter,
@@ -33,8 +33,16 @@ class App extends React.Component {
           <Route path="/DetailedSelectedBlogPage" >
               <DetailedSelectedBlogPage />
           </Route>
+          <Route path="/createABlog" >
+              <CreateABlog />
+          </Route>
+          <Route path="/login" >
+              <Login/>
+          </Route>
           
-          
+          <Route path="/register" >
+              <Register/>
+          </Route>
           
          
          

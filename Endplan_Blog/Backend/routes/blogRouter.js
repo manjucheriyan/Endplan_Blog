@@ -15,14 +15,16 @@ function authMiddleware(req,res,next){
 /* GET users listing. */
 
 router.post('/createBlog',function(req,res){
-  console.log("BlogRouter-createBlogBlog "); 
- let BlogTitle=req.body.blogTitle;
- let BlogDescription=req.body.blogDescription;
-//  let productCategory=req.body.productCategory;
-//  let productCount=req.body.productCount;
- blogServices.createNewBlog(BlogTitle,BlogDescription)
+  console.log("BlogRouter-createBlogBlogmn "); 
+  //console.log(blogTitle+blogDescription+BlogImage+MoreBlogContent);
+ let blogTitle=req.body.blogTitle;
+ let blogDescription=req.body.blogDescription;
+ let BlogImage=req.body.BlogImage;
+ let MoreBlogContent=req.body.MoreBlogContent;
+ console.log(blogTitle+blogDescription+BlogImage+MoreBlogContent);
+ blogServices.createNewBlog(blogTitle,blogDescription,BlogImage,MoreBlogContent)
   .then(data=>{
-    res.status(data.statusCode).send({message:data.message});
+    res.status(data.statusCode).send({message:data.message,blogs:data.Blogs});
   }) 
 })
 

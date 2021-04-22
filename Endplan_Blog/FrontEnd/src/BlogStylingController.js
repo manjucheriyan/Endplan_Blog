@@ -4,24 +4,23 @@ import {Link} from "react-router-dom";
 
 
 
-function BlogstylingController({ BlogObject,BlogTitle, BlogDetails}) {
+function BlogstylingController({ BlogObject}) {
  
   return (
     <div className="StyleBlog">
       <div className="StyleBlog__info">
        <Link to={{ 
                    pathname: "/DetailedSelectedBlogPage",
-                   SelectedBlog:BlogObject
+                   BlogObject:BlogObject
                   
                     }}>
-        
+        <img src={BlogObject.BlogImage} alt='images' 
+        width="200" height="200" />
         <h3 className="Blog__title">
-          
-          <strong>{BlogObject.BlogTitle}</strong>
+         <strong>{BlogObject.BlogTitle}</strong>
         </h3>
         <p className="Blog__Details">
-          
-      {BlogObject.BlogDescription}
+         {BlogObject.BlogDescription}
         </p>
         </Link>
         

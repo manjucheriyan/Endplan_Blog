@@ -2,32 +2,33 @@
 const {Blogs}= require("../models/blogModel");
 
 
-function createNewBlog(BlogTitle,BlogDescription){
+function createNewBlog(BlogTitle,BlogDescription,BlogImage,MoreBlogContent){
     console.log("BlogServices - createNewBlog");
-    console.log(BlogTitle);
-    console.log(BlogDescription);
     return Blogs.findOne({
         BlogTitle
     })
-    .then (Blogs=>{
-        if(Blogs){
+    .then (obj=>{
+        if(obj){
             return{
                 statusCode:400,
-                message:"Blog already exists"
+                message:"Blog on this topic  already exists"
             }
         }
         const newBlog= new Blogs({
-            BlogTitle,
-            BlogDescription
+            BlogTitle,BlogDescription,BlogImage,MoreBlogContent
         });
         newBlog.save();
 
         return {
             statusCode:200,
-            message:"Blog created successfully"
+            message:"Blog created successfully",
+            
+            
         }
     })
+    //data[username]={username,password,acno,history:[],balance:0};
 }
+
 
 
 function getAllBlogs(){
